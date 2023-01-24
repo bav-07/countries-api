@@ -18,15 +18,22 @@ const CountryContainer = () => {
 
     console.log(countryNames);
 
+    
+
     return(
 
         <>
             {
             countries ? countries.map(function(country) { 
-                return <CountryComponent country={country.name.common}/>
-            }) : "No countries found"
+                return (                
+                <>
+                <CountryComponent country={country.name.common}/>
+                <input type="checkbox"/> 
+                </>)})
+                : "No countries found"
             }
         </>
+        
 
     )
 
