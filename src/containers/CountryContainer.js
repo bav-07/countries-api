@@ -45,7 +45,7 @@ const CountryContainer = () => {
             visitedCountries ? visitedCountries.map(function(country) { 
                 return (                
                 <>
-                <CountryComponent country={country}/>
+                <CountryComponent country={country} moveCountryToVisitedList={() => {console.log("Already added country!")}} />
                 </>)})
                 : "No countries found"
             }
