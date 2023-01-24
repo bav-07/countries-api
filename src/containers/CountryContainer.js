@@ -13,12 +13,19 @@ const CountryContainer = () => {
 
     }, [])
 
+    const [visitedCountries, setVisitedCountries] = useState([]);
 
-    const countryNames = countries.map((country) => country.name.common);
-
-    console.log(countryNames);
-
+    const moveCountryToVisitedList = (country) => {
+        setVisitedCountries([...visitedCountries, country])
+    }
     
+
+
+    // const countryNames = countries.map((country) => country.name.common);
+
+    // console.log(countryNames);
+
+    console.log(visitedCountries)
 
     return(
 
@@ -27,13 +34,24 @@ const CountryContainer = () => {
             countries ? countries.map(function(country) { 
                 return (                
                 <>
-                <CountryComponent country={country.name.common}/>
-                <input type="checkbox"/> 
+                <CountryComponent country={country} moveCountryToVisitedList={moveCountryToVisitedList}/>
+                </>)})
+                : "No countries found"
+            }
+    
+
+            <h2>Visited Countries:</h2>
+            {
+            visitedCountries ? visitedCountries.map(function(country) { 
+                return (                
+                <>
+                <CountryComponent country={country}/>
                 </>)})
                 : "No countries found"
             }
         </>
-        
+
+
 
     )
 

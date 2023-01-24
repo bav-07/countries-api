@@ -1,8 +1,14 @@
-const CountryComponent = ({country}) => {
+const CountryComponent = ({country, moveCountryToVisitedList}) => {
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        moveCountryToVisitedList(country);
+    }
 
     return (
         <>        
-        <li>{country}</li>
+        <li>{country.name.common}</li>
+        <input type="checkbox" onChange={handleSubmit}/> 
         </>
 
     )
